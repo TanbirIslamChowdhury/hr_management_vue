@@ -1,10 +1,10 @@
 <template>
 
-<div class="container-xxl position-relative bg-white d-flex p-0">
+    <div class="container-xxl position-relative bg-white d-flex p-0">
        
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
+        <div class="sidebar pe-4 pb-3" v-if="uid">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
@@ -34,7 +34,7 @@
                     <router-link to="/attendence" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Attendence</router-link>
 
                    
-                    <router-link to="/salary" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Salary</router-link>
+                    <router-link to="/salary" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Payroll</router-link>
 
                     <!-- <router-link to="/message" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Messages</router-link>
 
@@ -60,7 +60,7 @@
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0" v-if="uid">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
@@ -148,18 +148,9 @@
                 </div>
             </nav>
             <!-- Navbar End -->
-
-
-
-
-
-
-<router-view></router-view>
-
-
-
+                <router-view></router-view>
             <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
+            <div class="container-fluid pt-4 px-4" v-if="uid">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
@@ -182,21 +173,6 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </template>
 

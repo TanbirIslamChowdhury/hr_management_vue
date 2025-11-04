@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 
 const routes =  [
    {
-     path: "/",
+     path: "/home",
      alias: "/home",
      name: "home",
      component: () => import("./components/Home")
@@ -35,11 +35,29 @@ const routes =  [
   {
       path: "/salary"  ,
       alias: "/salary",
-      name: "interest",
+      name: "salary",
       component: () => import("./components/Salary/List")
     },
+  {
+      path: "/salaryCreate"  ,
+      alias: "/salaryCreate",
+      name: "salaryCreate",
+      component: () => import("./components/Salary/Create")
+    },
+  {
+      path: "/salaryEdit/:id"  ,
+      alias: "/salaryEdit/:id",
+      name: "editPayroll",
+      component: () => import("./components/Salary/Edit")
+    },
+  {
+      path: "/payslip/:id"  ,
+      alias: "/payslip/:id",
+      name: "payslip",
+      component: () => import("./components/Salary/Payslip")
+    },
        {
-      path: "/login"  ,
+      path: "/"  ,
       alias: "/login",
       name: "login",
       component: () => import("./components/Login")

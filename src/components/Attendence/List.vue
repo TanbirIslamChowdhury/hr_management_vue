@@ -3,6 +3,7 @@ ID	Date	Action
 <template>
     <div>
         <h1>Attendence List</h1>
+        <router-link class="btn btn-primary mb-3" :to="{ name: 'attendenceCreate' }">Create Employee</router-link>
         <table class="table table-hover table-product">
             <thead>
                 <tr>
@@ -25,6 +26,7 @@ ID	Date	Action
     </div>
 </template>
 <script>
+import DataService from '../../services/DataService'
 export default {
     name: "AttendenceList",
     data() {
@@ -37,8 +39,16 @@ export default {
     },
     methods: {
         fetchAttendences() {
-            // Fetch attendence data from an API or data source
-            // This is a placeholder for demonstration purposes
+            DataService.attendanceList()
+            .then(response => {
+                if(response.data)
+                this.attendences= response.data;
+                else
+                alert(response.data.error)
+            })
+            .catch(e => {
+                console.log(e);
+            });
             this.attendences = [
                 { id: 1, date: '2024-01-01' },
                 { id: 2, date: '2024-01-02' },

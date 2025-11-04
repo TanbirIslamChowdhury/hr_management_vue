@@ -7,8 +7,11 @@ class DataService {
   EmployeeList() {
     return http.get("/employee");
   }
-  checkLeaveStatus() {
-    return http.get("/check-leave");
+  checkLeaveStatus(id,date) {
+    return http.get(`/get-attendance?date=${date}&employeeId=${id}`);
+  }
+  checkAttendanceStatus(id,date) {
+    return http.get(`/get-attendance?date=${date}&employeeId=${id}`);
   }
   DesignationList() {
     return http.get("/designation");
@@ -33,6 +36,9 @@ class DataService {
   }
   createAttendance(data) {
     return http.post("/attendence", data);
+  }
+  attendanceList() {
+    return http.get("/attendence");
   }
   // PropartyList() {
   //   return http.get(`/properties`);
@@ -75,6 +81,36 @@ DeleteBooking(id) {
 
 AddBooking(data) {
     return http.post("/booking", data);
+  }
+
+  // Payroll methods
+  getEmployeeAbsent(employeeId, month, year) {
+    return http.get(`/get-employee-absent?employee_id=${employeeId}&month=${month}&year=${year}`);
+  }
+
+  getMonthlyLoanDeduction(employeeId, month, year) {
+    return http.get(`/monthly-loan-deduction?employee_id=${employeeId}&month=${month}&year=${year}`);
+  }
+
+  createPayroll(data) {
+    return http.post("/Payroll", data);
+  }
+
+  payrollList() {
+    return http.get("/Payroll");
+  }
+
+  getPayroll(id) {
+    return http.get(`/Payroll/${id}`);
+  }
+
+  deletePayroll(id) {
+    return http.delete(`/Payroll/${id}`);
+  }
+
+  updatePayroll(id, data) {
+    
+    return http.post(`/Payroll/${id}`, data);
   }
   
 }

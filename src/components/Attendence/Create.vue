@@ -118,6 +118,23 @@ export default {
                         console.error('Error checking leave status:', error);
                     });
             });
+            this.employees.forEach(employee => {
+                DataService.checkAttendanceStatus(employee.id, date)
+                    .then(response => {
+                        if (response.data) {
+                            // Employee is on leave
+                            this.attendance[employee.id].status = response.data.status; // Set to Leave
+                            this.attendance[employee.id].check_in = response.data.check_in;
+                            this.attendance[employee.id].check_out = response.data.check_out;
+                        } else {
+                            // Employee is not on leave
+                            this.attendance[employee.id].status = '0'; // Set to Present
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error checking leave status:', error);
+                    });
+            });
         },
         submitAttendance() {
             const attendanceData = {
@@ -129,12 +146,12 @@ export default {
                     status: this.attendance[employeeId].status
                 }))
             };
-            console.log(attendanceData);
+            
 
             DataService.createAttendance(attendanceData)
                 .then(response => {
                     console.log('Attendance saved successfully:', response.data);
-                    this.$router.push('/attendance');
+                    this.$router.push({ name: 'attendence' });
                 })
                 .catch(error => {
                     console.error('Error saving attendance:', error);
