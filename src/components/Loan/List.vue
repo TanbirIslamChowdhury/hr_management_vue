@@ -16,7 +16,7 @@ Name	Email	Phone	Branch	Department	Designation	Shift	Status	Action
             <th>Monthly Installmentt</th>
             <th>Remaining Balance</th>
             <th>Start Date</th>
-            <td>Finish_date </td>
+            <th>Finish_date </th>
             <th>Status</th>
             <th>Action</th>
             </tr>

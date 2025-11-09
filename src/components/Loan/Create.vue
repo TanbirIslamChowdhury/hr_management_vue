@@ -94,7 +94,7 @@ export default {
             DataService.createLoan(this.formData)
             .then(response => {
                 console.log(response.data);
-                alert("Room added successfully!");
+                alert("Loan added successfully!");
                 this.$router.push({ name: 'loan' });
             })
             .catch(e => {
