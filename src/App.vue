@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container-xxl position-relative bg-white d-flex p-0">
+    <div class="container-l position-relative bg-white d-flex p-0">
        
 
         <!-- Sidebar Start -->
@@ -35,6 +35,7 @@
 
                    
                     <router-link to="/salary" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Payroll</router-link>
+                    <router-link to="/loan" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Loan</router-link>
 
                     <!-- <router-link to="/message" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Messages</router-link>
 

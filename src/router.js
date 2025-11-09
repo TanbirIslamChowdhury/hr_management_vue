@@ -44,6 +44,18 @@ const routes =  [
       name: "salaryCreate",
       component: () => import("./components/Salary/Create")
     },
+    {
+      path: "/loan"  ,
+      alias: "/loan",
+      name: "loan",
+      component: () => import("./components/Loan/List")
+    },
+  {
+      path: "/loanCreate"  ,
+      alias: "/loanCreate",
+      name: "loanCreate",
+      component: () => import("./components/Loan/Create")
+    },
   {
       path: "/salaryEdit/:id"  ,
       alias: "/salaryEdit/:id",

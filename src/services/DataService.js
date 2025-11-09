@@ -22,6 +22,12 @@ class DataService {
   ShiftList() {
     return http.get("/shift");
   }
+  LoanList() {
+    return http.get("/Loan");
+  }
+  createLoan(data) {
+    return http.post("/Loan", data);
+  }
   // getHotel(id) {
   //   return http.get(`/hotel/${id}`);
   // }
